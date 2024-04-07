@@ -50,7 +50,7 @@ Build the solution to restore NuGet packages.
 
 Run the application.
 
-Use a tool like Postman or curl to test the API endpoints.
+Use a tool like Postman or swagger to test the API endpoints.
 
 ## API Endpoints
 
@@ -70,13 +70,5 @@ ProductAPI includes unit tests for the controller using Moq and NUnit. You can r
 To run the unit tests:
 
 1. Open the solution in Visual Studio.
-2. Navigate to the `ProductAPI.UnitTests` project.
+2. Navigate to the `ProductAPI.UnitTests` folder.
 3. Run the unit tests using the test runner.
-
-## Contributing
-
-Contributions are welcome! If you encounter any issues, have suggestions for improvements, or want to add new features, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
