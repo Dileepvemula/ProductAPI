@@ -10,8 +10,6 @@ ProductAPI is a RESTful API for managing products. It supports CRUD operations f
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
 - [Unit Testing](#unit-testing)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
