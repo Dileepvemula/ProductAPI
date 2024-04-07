@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductAPI</name>
+    </assembly>
+    <members>
+        <member name="T:ProductAPI.Controllers.ProductsController">
+            <summary>
+            Controller for managing products.
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.#ctor(ProductAPI.Repositories.IProductRepository,Microsoft.Extensions.Logging.ILogger{ProductAPI.Controllers.ProductsController})">
+            <summary>
+            Initializes a new instance of the ProductsController class.
+            </summary>
+            <param name="productRepository">The product repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ProductAPI.Controllers.ProductsController.GetAllProducts(System.Int32,System.Int32)" -->
+        <member name="M:ProductAPI.Controllers.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            Retrieves details of a product by its ID.
+            </summary>
+            <param name="id">The ID of the product to retrieve.</param>
+            <remarks>
+            Usage: GET /api/products/{id}
+            </remarks>
+            <returns>Returns the product if exists, else returns an error.</returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.CreateProduct(System.String,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Create a new product.
+            </summary>
+            <param name="name">The name of the product.</param>
+            <param name="brand">The brand of the product.</param>
+            <param name="price">The price of the product.</param>
+            <returns>Returns the newly created product if successful, else returns an error.</returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.UpdateProduct(System.Int32,System.String,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Update an existing product with the specified ID.
+            </summary>
+            <param name="id">The ID of the product to update.</param>
+            <param name="name">The updated name of the product.</param>
+            <param name="brand">The updated brand of the product.</param>
+            <param name="price">The updated price of the product.</param>
+            <remarks>Usage: PUT /api/products/{id}</remarks>
+            <returns>Returns the updated product if successful, else BadRequest or NotFound.</returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.DeleteProduct(System.Int32)">
+            <summary>
+            Delete a product with the specified ID.
+            </summary>
+            <param name="id">The ID of the product to delete.</param>
+            <remarks>Usage: DELETE /api/products/{id}</remarks>
+            <returns>Returns NoContent if product is successfully deleted, else BadRequest or NotFound.</returns>
+        </member>
+        <member name="T:ProductAPI.Models.Product">
+            <summary>
+            Represents a product entity.
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Models.Product.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductAPI.Models.Product"/> class.
+            </summary>
+            <param name="name">The name of the product.</param>
+            <param name="brand">The brand of the product.</param>
+        </member>
+        <member name="M:ProductAPI.Models.Product.#ctor(System.Int32,System.String,System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductAPI.Models.Product"/> class.
+            </summary>
+            <param name="id">The ID of the product.</param>
+            <param name="name">The name of the product.</param>
+            <param name="brand">The brand of the product.</param>
+            <param name="price">The price of the product.</param>
+        </member>
+        <member name="M:ProductAPI.Models.Product.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductAPI.Models.Product"/> class.
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.Id">
+            <summary>
+            Gets or sets the ID of the product.
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.Name">
+            <summary>
+            Gets or sets the name of the product.
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.Brand">
+            <summary>
+            Gets or sets the brand of the product.
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.Price">
+            <summary>
+            Gets or sets the price of the product.
+            </summary>
+        </member>
+        <member name="T:ProductAPI.Repositories.IProductRepository">
+            <summary>
+            Represents a repository for managing products.
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.GetProducts">
+            <summary>
+            Gets all products.
+            </summary>
+            <returns>The list of products.</returns>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.GetProductById(System.Int32)">
+            <summary>
+            Gets a product by its ID.
+            </summary>
+            <param name="id">The ID of the product.</param>
+            <returns>The product with the specified ID, or null if not found.</returns>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.AddProduct(ProductAPI.Models.Product)">
+            <summary>
+            Adds a new product.
+            </summary>
+            <param name="product">The product to add.</param>
+            <returns>The added product.</returns>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.UpdateProduct(ProductAPI.Models.Product)">
+            <summary>
+            Updates an existing product.
+            </summary>
+            <param name="product">The product to update.</param>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product by its ID.
+            </summary>
+            <param name="id">The ID of the product to delete.</param>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.ProductExists(System.Int32)">
+            <summary>
+            Checks if a product with the specified ID exists.
+            </summary>
+            <param name="id">The ID of the product to check.</param>
+            <returns>True if the product exists, otherwise false.</returns>
+        </member>
+        <member name="M:ProductAPI.Repositories.IProductRepository.ProductExists(System.String,System.String)">
+            <summary>
+            Checks if a product with the specified name and brand exists.
+            </summary>
+            <param name="name">The name of the product.</param>
+            <param name="brand">The brand of the product.</param>
+            <returns>True if the product exists, otherwise false.</returns>
+        </member>
+        <member name="T:ProductAPI.Repositories.ProductRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductAPI.Repositories.ProductRepository"/> class with initial products.
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.GetProducts">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.GetProductById(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.AddProduct(ProductAPI.Models.Product)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.UpdateProduct(ProductAPI.Models.Product)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.DeleteProduct(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.ProductExists(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductAPI.Repositories.ProductRepository.ProductExists(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProductNotFoundError">
+            <summary>
+            Represents an error response for a product not found.
+            </summary>
+        </member>
+        <member name="P:ProductNotFoundError.Message">
+            <summary>
+            The error message.
+            </summary>
+        </member>
+        <member name="P:ProductNotFoundError.ProductId">
+            <summary>
+            The ID of the product that was not found.
+            </summary>
+        </member>
+        <member name="P:ProductNotFoundError.StatusCode">
+            <summary>
+            The HTTP status code associated with the error.
+            </summary>
+        </member>
+        <member name="M:ProductNotFoundError.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductNotFoundError"/> class with the specified message and product ID.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="id">The ID of the product.</param>
+        </member>
+    </members>
+</doc>
